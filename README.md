@@ -3,7 +3,7 @@
 An advanced, high-fidelity AIOps orchestration and monitoring platform for NVIDIA H100 GPU clusters. Built with FastAPI for the backend simulation engine and Streamlit for the front-end control panel.
 
 ### 🔗 Live Deployments
-* **Live Web App (Streamlit):** [https://nexusgpu-v8tbjibf2xfzn4haknuiqg.streamlit.app/](https://nexusgpu-v8tbjibf2xfzn4haknuiqg.streamlit.app/)
+* **Live Web App (Streamlit):** [https://nexusgpu-mgdbmci335kkwpws2kngfm.streamlit.app/](https://nexusgpu-mgdbmci335kkwpws2kngfm.streamlit.app/)
 * **Live API Engine (Render):** [https://nexusgpu-backend.onrender.com/](https://nexusgpu-backend.onrender.com/)
 
 ---
