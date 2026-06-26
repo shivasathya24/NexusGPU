@@ -1,0 +1,354 @@
+/* Custom CSS for GPU Nexus AIOps Platform - Breathtaking Cyberpunk Space Theme */
+
+/* Import premium fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* Hide default Streamlit chrome to feel like a standalone web app */
+[data-testid="stSidebar"] {
+    display: none !important;
+}
+[data-testid="stHeader"] {
+    display: none !important;
+}
+[data-testid="stAppViewContainer"] {
+    background-color: #05060f !important;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(0, 229, 255, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%) !important;
+    background-attachment: fixed !important;
+    font-family: 'Inter', sans-serif !important;
+    color: #E2E8F0 !important;
+    padding-top: 1rem !important;
+}
+
+/* Adjust Layout block margins */
+div[data-testid="stMainBlockContainer"] {
+    max-width: 95% !important;
+    padding-top: 2rem !important;
+    padding-bottom: 4rem !important;
+}
+
+/* Header style override */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* Gradient Titles */
+.gradient-title {
+    background: linear-gradient(135deg, #FFFFFF 0%, #C7D2FE 50%, #00E5FF 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Glassmorphism card utility */
+.glass-card {
+    background: rgba(10, 15, 30, 0.45) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 16px !important;
+    padding: 22px !important;
+    box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.6) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 229, 255, 0.35) !important; /* Cyber Cyan glow on hover */
+    box-shadow: 0 24px 60px 0 rgba(0, 229, 255, 0.15) !important;
+}
+
+/* Glowing Neon Borders & Accents */
+.border-nvidia {
+    border-left: 4px solid #00E5FF !important;
+}
+
+.border-warning {
+    border-left: 4px solid #F59E0B !important;
+}
+
+.border-critical {
+    border-left: 4px solid #EF4444 !important;
+}
+
+.border-violet {
+    border-left: 4px solid #8B5CF6 !important;
+}
+
+.text-nvidia {
+    color: #00E5FF !important;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+/* Status Indicators (Pills) */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    gap: 6px;
+}
+
+.status-healthy {
+    background: rgba(16, 185, 129, 0.1) !important;
+    color: #10B981 !important;
+    border: 1px solid rgba(16, 185, 129, 0.2) !important;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+}
+
+.status-warning {
+    background: rgba(245, 158, 11, 0.1) !important;
+    color: #F59E0B !important;
+    border: 1px solid rgba(245, 158, 11, 0.2) !important;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}
+
+.status-critical {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #EF4444 !important;
+    border: 1px solid rgba(239, 68, 68, 0.2) !important;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
+}
+
+.status-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-healthy .status-pulse {
+    background-color: #10B981;
+    animation: pulse-green 1.5s infinite;
+}
+
+.status-warning .status-pulse {
+    background-color: #F59E0B;
+    animation: pulse-orange 1.5s infinite;
+}
+
+.status-critical .status-pulse {
+    background-color: #EF4444;
+    animation: pulse-red 1.5s infinite;
+}
+
+/* Animations */
+@keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes pulse-orange {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+@keyframes pulse-red {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+/* Custom stats card values */
+.stat-value {
+    font-size: 2.25rem !important;
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, #FFF 0%, #A5B4FC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #94A3B8;
+    font-weight: 500;
+}
+
+/* Interactive NVLink Topology Visualizer styling */
+.nvlink-wrapper {
+    background: radial-gradient(circle at 50% 50%, rgba(10, 15, 30, 0.8) 0%, rgba(5, 6, 15, 0.95) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dynamic slider and input styling in Streamlit */
+div[data-baseweb="slider"] {
+    background-color: transparent !important;
+}
+
+/* Scrollbar customizations */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #05060f;
+}
+::-webkit-scrollbar-thumb {
+    background: #1e1b4b;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00E5FF;
+}
+
+/* Interactive batching request queue styling */
+.request-node {
+    padding: 6px 12px;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 11px;
+    color: #60A5FA;
+    margin-bottom: 6px;
+    animation: slide-in-left 0.4s ease-out;
+}
+
+.batch-node {
+    padding: 10px;
+    background: rgba(0, 229, 255, 0.07);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    animation: pulse-border-green 2s infinite;
+}
+
+@keyframes slide-in-left {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Metric card specific adjustments to override Streamlit widgets */
+div[data-testid="stMetricValue"] {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* Top Navbar Style Adjustments */
+.stButton > button {
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    background: rgba(15, 23, 42, 0.4) !important;
+    color: #94A3B8 !important;
+    font-weight: 600 !important;
+    font-family: 'Outfit', sans-serif !important;
+    transition: all 0.25s ease-in-out !important;
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+}
+
+.stButton > button:hover {
+    color: #00E5FF !important;
+    border-color: rgba(0, 229, 255, 0.4) !important;
+    background: rgba(0, 229, 255, 0.06) !important;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.15) !important;
+    transform: translateY(-1px);
+}
+
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #00E5FF 0%, #8B5CF6 100%) !important;
+    color: #05060f !important;
+    border: none !important;
+    box-shadow: 0 4px 20px rgba(0, 229, 255, 0.3) !important;
+    font-weight: 700 !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    box-shadow: 0 4px 25px rgba(0, 229, 255, 0.5) !important;
+    color: #05060f !important;
+}
+
+/* Custom button hover effects for secondary buttons */
+button[kind="secondary"] {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    color: #ffffff !important;
+    transition: all 0.2s ease !important;
+}
+
+button[kind="secondary"]:hover {
+    border-color: #00E5FF !important;
+    color: #00E5FF !important;
+    background-color: rgba(0, 229, 255, 0.05) !important;
+}
+
+/* Floating AI assistant widget style */
+.ai-assistant-bubble {
+    border-left: 3px solid #00E5FF;
+    background: rgba(15, 23, 42, 0.35);
+    padding: 12px;
+    border-radius: 0 12px 12px 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Floating Power Widget Styling */
+.floating-power-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 260px;
+    background: rgba(8, 10, 24, 0.82) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(0, 229, 255, 0.25) !important;
+    border-radius: 14px !important;
+    padding: 14px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.15) !important;
+    z-index: 999999 !important;
+    font-family: 'Inter', sans-serif;
+    color: #E2E8F0;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.floating-power-widget:hover {
+    border-color: rgba(0, 229, 255, 0.6) !important;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 229, 255, 0.25) !important;
+}
+
+#floating-widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    cursor: move;
+    user-select: none;
+}
+
+.floating-metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 11px;
+}
+
+.floating-label {
+    color: #94A3B8;
+    font-weight: 500;
+}
+
+.floating-value {
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+}

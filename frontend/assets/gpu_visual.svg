@@ -1,0 +1,82 @@
+<svg width="600" height="280" viewBox="0 0 600 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="background: rgba(10, 15, 26, 0.4); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+    <!-- Animated Background Mesh -->
+    <path d="M50 0V280M150 0V280M250 0V280M350 0V280M450 0V280M550 0V280" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+    <path d="M0 50H600M0 140H600M0 230H600" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+    
+    <!-- Interconnect Bus (NVLink Ring) -->
+    <rect x="180" y="80" width="240" height="120" rx="10" stroke="#76B900" stroke-width="1.5" stroke-dasharray="10 5" fill="none" opacity="0.3">
+        <animate attributeName="stroke-dashoffset" values="100;0" dur="10s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="170" y="70" width="260" height="140" rx="15" stroke="#00D2FF" stroke-width="1" stroke-dasharray="5 5" fill="none" opacity="0.2">
+        <animate attributeName="stroke-dashoffset" values="0;100" dur="15s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- GPU nodes -->
+    <!-- Row 1 -->
+    <g transform="translate(100, 40)">
+        <rect width="60" height="60" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(118, 185, 0, 0.4)" stroke-width="1.5"/>
+        <text x="30" y="28" fill="#76B900" font-family="'Outfit', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">GPU 0</text>
+        <text x="30" y="45" fill="#64748B" font-family="'Inter', sans-serif" font-size="9" text-anchor="middle">H100</text>
+        <circle cx="30" cy="8" r="3" fill="#10B981"/>
+    </g>
+    <g transform="translate(220, 40)">
+        <rect width="60" height="60" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(118, 185, 0, 0.4)" stroke-width="1.5"/>
+        <text x="30" y="28" fill="#76B900" font-family="'Outfit', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">GPU 1</text>
+        <text x="30" y="45" fill="#64748B" font-family="'Inter', sans-serif" font-size="9" text-anchor="middle">H100</text>
+        <circle cx="30" cy="8" r="3" fill="#10B981"/>
+    </g>
+    <g transform="translate(320, 40)">
+        <rect width="60" height="60" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(118, 185, 0, 0.4)" stroke-width="1.5"/>
+        <text x="30" y="28" fill="#76B900" font-family="'Outfit', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">GPU 2</text>
+        <text x="30" y="45" fill="#64748B" font-family="'Inter', sans-serif" font-size="9" text-anchor="middle">H100</text>
+        <circle cx="30" cy="8" r="3" fill="#10B981"/>
+    </g>
+    <g transform="translate(440, 40)">
+        <rect width="60" height="60" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(118, 185, 0, 0.4)" stroke-width="1.5"/>
+        <text x="30" y="28" fill="#76B900" font-family="'Outfit', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">GPU 3</text>
+        <text x="30" y="45" fill="#64748B" font-family="'Inter', sans-serif" font-size="9" text-anchor="middle">H100</text>
+        <circle cx="30" cy="8" r="3" fill="#10B981"/>
+    </g>
+    
+    <!-- Row 2 -->
+    <g transform="translate(100, 180)">
+        <rect width="60" height="60" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(118, 185, 0, 0.4)" stroke-width="1.5"/>
+        <text x="30" y="28" fill="#76B900" font-family="'Outfit', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">GPU 7</text>
+        <text x="30" y="45" fill="#64748B" font-family="'Inter', sans-serif" font-size="9" text-anchor="middle">H100</text>
+        <circle cx="30" cy="8" r="3" fill="#10B981"/>
+    </g>
+    <g transform="translate(220, 180)">
+        <rect width="60" height="60" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(118, 185, 0, 0.3)" stroke-width="1.5"/>
+        <text x="30" y="28" fill="#76B900" font-family="'Outfit', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">GPU 6</text>
+        <text x="30" y="45" fill="#64748B" font-family="'Inter', sans-serif" font-size="9" text-anchor="middle">H100</text>
+        <circle cx="30" cy="8" r="3" fill="#10B981"/>
+    </g>
+    <g transform="translate(320, 180)">
+        <rect width="60" height="60" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(118, 185, 0, 0.3)" stroke-width="1.5"/>
+        <text x="30" y="28" fill="#76B900" font-family="'Outfit', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">GPU 5</text>
+        <text x="30" y="45" fill="#64748B" font-family="'Inter', sans-serif" font-size="9" text-anchor="middle">H100</text>
+        <circle cx="30" cy="8" r="3" fill="#F59E0B">
+            <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+    <g transform="translate(440, 180)">
+        <rect width="60" height="60" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(118, 185, 0, 0.4)" stroke-width="1.5"/>
+        <text x="30" y="28" fill="#76B900" font-family="'Outfit', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">GPU 4</text>
+        <text x="30" y="45" fill="#64748B" font-family="'Inter', sans-serif" font-size="9" text-anchor="middle">H100</text>
+        <circle cx="30" cy="8" r="3" fill="#10B981"/>
+    </g>
+    
+    <!-- Central Orchestration Node -->
+    <g transform="translate(265, 110)">
+        <rect width="70" height="60" rx="12" fill="rgba(30, 41, 59, 0.95)" stroke="#00D2FF" stroke-width="2"/>
+        <text x="35" y="26" fill="#00D2FF" font-family="'Outfit', sans-serif" font-size="10" font-weight="800" text-anchor="middle">NEXUS</text>
+        <text x="35" y="38" fill="#E2E8F0" font-family="'Inter', sans-serif" font-size="9" font-weight="bold" text-anchor="middle">AIOps</text>
+        <text x="35" y="48" fill="#10B981" font-family="'Inter', sans-serif" font-size="8" text-anchor="middle">ACTIVE</text>
+    </g>
+    
+    <!-- Interactive lines -->
+    <line x1="160" y1="70" x2="265" y2="120" stroke="rgba(0, 210, 255, 0.4)" stroke-width="1.5"/>
+    <line x1="440" y1="70" x2="335" y2="120" stroke="rgba(0, 210, 255, 0.4)" stroke-width="1.5"/>
+    <line x1="160" y1="210" x2="265" y2="150" stroke="rgba(0, 210, 255, 0.4)" stroke-width="1.5"/>
+    <line x1="440" y1="210" x2="335" y2="150" stroke="rgba(0, 210, 255, 0.4)" stroke-width="1.5"/>
+</svg>

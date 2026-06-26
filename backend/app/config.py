@@ -1,0 +1,27 @@
+import os
+
+# Platform Settings
+PLATFORM_NAME = "GPU Nexus AIOps Platform"
+VERSION = "1.0.0"
+
+# Cluster Specs
+NUM_GPUS = 8
+GPU_MODEL = "NVIDIA H100 PCIe 80GB"
+VRAM_CAPACITY_GB = 80.0
+MAX_POWER_LIMIT_W = 350.0  # Configurable limit
+DEFAULT_POWER_LIMIT_W = 350.0
+
+# Alert Thresholds
+TEMP_WARNING_LIMIT = 78.0  # Celsius
+TEMP_CRITICAL_LIMIT = 85.0  # Celsius
+VRAM_WARN_PERCENT = 90.0
+POWER_WARN_LIMIT = 320.0
+
+# NVLink Bandwidth (GB/s)
+NVLINK_MAX_BANDWIDTH_GBS = 900.0
+
+# Mock Grid Electricity Prices ($/kWh)
+GRID_BASE_PRICE = 0.12
+GRID_PEAK_PRICE = 0.28
+PEAK_HOURS_START = 14  # 2:00 PM (14:00)
+PEAK_HOURS_END = 20    # 8:00 PM (20:00)
