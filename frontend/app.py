@@ -12,7 +12,21 @@ st.set_page_config(
 )
 
 # Backend URL config
-BACKEND_URL = st.secrets.get("BACKEND_URL", os.getenv("BACKEND_URL", "http://127.0.0.1:8000"))
+def get_backend_url():
+    keys = ["BACKEND_URL", "backend_url", "BackendUrl", "Backend_URL"]
+    for key in keys:
+        try:
+            if key in st.secrets:
+                return st.secrets[key]
+        except Exception:
+            pass
+    for key in keys:
+        val = os.getenv(key)
+        if val:
+            return val
+    return "http://127.0.0.1:8000"
+
+BACKEND_URL = get_backend_url()
 
 def load_css(file_name):
     # Try to load custom styles
@@ -52,12 +66,12 @@ col_logo, col_opt1, col_opt2, col_opt3, col_opt4, col_opt5 = st.columns([2.2, 1.
 
 with col_logo:
     status_class = "status-healthy" if api_online else "status-critical"
-    status_label = "ONLINE" if api_online else "OFFLINE"
+    status_label = "ONLINE" if api_online else f"OFFLINE ({BACKEND_URL.replace('https://', '')})"
     st.markdown(
         f"""
         <div style="display: flex; align-items: center; gap: 12px; margin-top: 5px;">
             <h2 style="color: #00E5FF; margin: 0; font-family: 'Outfit', sans-serif; font-size: 24px; text-shadow: 0 0 15px rgba(0,229,255,0.4);">⚡ GPU NEXUS</h2>
-            <span class="status-pill {status_class}" style="padding: 2px 8px !important; font-size: 9px !important;">
+            <span class="status-pill {status_class}" style="padding: 2px 8px !important; font-size: 9px !important; white-space: nowrap;">
                 <span class="status-pulse"></span>
                 {status_label}
             </span>
