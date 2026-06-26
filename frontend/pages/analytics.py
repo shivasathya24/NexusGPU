@@ -11,9 +11,30 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
+def get_backend_url():
+    keys = ["BACKEND_URL", "backend_url", "BackendUrl", "Backend_URL"]
+    url = None
+    for key in keys:
+        try:
+            if key in st.secrets:
+                url = st.secrets[key]
+                break
+        except Exception:
+            pass
+    if not url:
+        for key in keys:
+            val = os.getenv(key)
+            if val:
+                url = val
+                break
+    if not url:
+        url = "http://127.0.0.1:8000"
+    url = url.strip().rstrip("/")
+    if not url.startswith("http://") and not url.startswith("https://"):
+        url = "http://" + url if "127.0.0.1" in url or "localhost" in url else "https://" + url
+    return url
 
-raw_url = st.secrets.get("BACKEND_URL", os.getenv("BACKEND_URL", "http://127.0.0.1:8000")).strip().rstrip("/")
-BACKEND_URL = raw_url if raw_url.startswith(("http://", "https://")) else ("http://" if "127.0.0.1" in raw_url or "localhost" in raw_url else "https://") + raw_url
+BACKEND_URL = get_backend_url()
 
 def generate_pdf_report(gpus, power_info, health_info, thermal_info):
     """
