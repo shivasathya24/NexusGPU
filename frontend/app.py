@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # Backend URL config
-BACKEND_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
+BACKEND_URL = st.secrets.get("BACKEND_URL", os.getenv("BACKEND_URL", "http://127.0.0.1:8000"))
 
 def load_css(file_name):
     # Try to load custom styles
@@ -34,7 +34,7 @@ if "page" not in st.session_state:
 # Verify API availability
 api_online = False
 try:
-    response = requests.get(f"{BACKEND_URL}/", timeout=1.5)
+    response = requests.get(f"{BACKEND_URL}/", timeout=5.0)
     if response.status_code == 200:
         api_online = True
 except Exception:
