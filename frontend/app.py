@@ -63,12 +63,15 @@ if "page" not in st.session_state:
 
 # Verify API availability
 api_online = False
+connection_error = None
 try:
     response = requests.get(f"{BACKEND_URL}/", timeout=5.0)
     if response.status_code == 200:
         api_online = True
-except Exception:
-    pass
+    else:
+        connection_error = f"HTTP {response.status_code}: {response.text}"
+except Exception as e:
+    connection_error = str(e)
 
 # Import page renderers
 from pages.landing import render_landing
@@ -115,6 +118,9 @@ for option in menu_options:
                 st.rerun()
 
 st.markdown("<hr style='border-color: rgba(255,255,255,0.06); margin-top: 15px; margin-bottom: 25px;'>", unsafe_allow_html=True)
+
+if not api_online and connection_error:
+    st.error(f"🔌 Backend Connection Error: {connection_error}")
 
 # Render Pages
 if st.session_state.page == "Landing Page":
