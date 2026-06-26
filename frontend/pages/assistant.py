@@ -2,7 +2,8 @@ import streamlit as st
 import requests
 import os
 
-BACKEND_URL = st.secrets.get("BACKEND_URL", os.getenv("BACKEND_URL", "http://127.0.0.1:8000"))
+raw_url = st.secrets.get("BACKEND_URL", os.getenv("BACKEND_URL", "http://127.0.0.1:8000")).strip().rstrip("/")
+BACKEND_URL = raw_url if raw_url.startswith(("http://", "https://")) else ("http://" if "127.0.0.1" in raw_url or "localhost" in raw_url else "https://") + raw_url
 
 def render_assistant(api_online):
     st.markdown(

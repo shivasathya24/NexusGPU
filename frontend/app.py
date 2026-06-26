@@ -14,17 +14,33 @@ st.set_page_config(
 # Backend URL config
 def get_backend_url():
     keys = ["BACKEND_URL", "backend_url", "BackendUrl", "Backend_URL"]
+    url = None
     for key in keys:
         try:
             if key in st.secrets:
-                return st.secrets[key]
+                url = st.secrets[key]
+                break
         except Exception:
             pass
-    for key in keys:
-        val = os.getenv(key)
-        if val:
-            return val
-    return "http://127.0.0.1:8000"
+    if not url:
+        for key in keys:
+            val = os.getenv(key)
+            if val:
+                url = val
+                break
+    if not url:
+        url = "http://127.0.0.1:8000"
+    
+    # Strip spaces and trailing slashes
+    url = url.strip().rstrip("/")
+    
+    # Ensure scheme is present (e.g. add https:// if missing)
+    if not url.startswith("http://") and not url.startswith("https://"):
+        if "127.0.0.1" in url or "localhost" in url:
+            url = "http://" + url
+        else:
+            url = "https://" + url
+    return url
 
 BACKEND_URL = get_backend_url()
 

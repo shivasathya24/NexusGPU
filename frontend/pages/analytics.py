@@ -12,7 +12,8 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 
-BACKEND_URL = st.secrets.get("BACKEND_URL", os.getenv("BACKEND_URL", "http://127.0.0.1:8000"))
+raw_url = st.secrets.get("BACKEND_URL", os.getenv("BACKEND_URL", "http://127.0.0.1:8000")).strip().rstrip("/")
+BACKEND_URL = raw_url if raw_url.startswith(("http://", "https://")) else ("http://" if "127.0.0.1" in raw_url or "localhost" in raw_url else "https://") + raw_url
 
 def generate_pdf_report(gpus, power_info, health_info, thermal_info):
     """
